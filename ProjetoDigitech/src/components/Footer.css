@@ -1,0 +1,112 @@
+/*-- CSS DO HEADER --*/
+
+header {
+    background-color: #fa8334;
+    padding: 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar {
+    height: 2px;
+    width: 25px;
+    margin: 3px 0;
+    background-color: #333;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .logo a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-box input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .search-box button {
+    padding: 10px;
+    margin-left: 5px;
+    border: none;
+    background-color: #fa8334;
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-box button i {
+    font-size: 16px;
+  }
+  
+  main {
+    margin-top: 30px;
+  }
+  
+  /*-- CSS DOS BOTOES DO GRID --*/
+  
+  .btn-primary:hover {
+    background-color: #fa8334;
+  }
+  
+  /*-- CSS DO CARROSSEL --*/
+  
+  .carousel-img {
+    height: 500px;
+    width: 100%;
+  }
+  
+  #carousel {
+    max-width: 80%;
+  }
+  
+  @media (max-width: 480px) {
+    .carousel-img {
+      height: 200px;
+    }
+    }
+  
+    /*-- CSS DO FOOTER --*/
+  
+  footer {
+    flex-shrink: 0;
+    background-color: #fa8334;
+    padding: 20px;
+  }
+  
+  .social-icons {
+    text-align: right;
+  }
+  
+  .social-icons a {
+    color: #fff;
+  }
+  
+  .social-icons a {
+    margin: 5px;
+  }
+  
+  .social-icons a:hover {
+    background-color: #fa8334;
+  }
