@@ -1,11 +1,13 @@
-import { useParams } from "react-router"
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
+import './Perfil.css'
 
-export default function Perfil() {
-    const { id } = useParams()
-
+export default function Erro404() {
     return (
         <>
-            <h1>Perfil {id}</h1>
+        <Navbar />
+        <h1>Seu Perfil</h1>
+        <Footer />
         </>
     )
 }

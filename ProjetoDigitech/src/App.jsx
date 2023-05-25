@@ -6,6 +6,7 @@ import Home from './pages/Home'
 // import UserContext from './contexts/UserContext'
 import Carrinho from './pages/Carrinho'
 import Login from './pages/Login'
+import Perfil from './pages/Perfil'
 
 export default function App() {
   // const { logado } = useContext(UserContext)
@@ -15,6 +16,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="Carrinho" element={<Carrinho />} />
+        <Route path="Perfil" element={<Perfil />} />
         <Route path="Login" element={<Login />} />
         <Route path="*" element={<Erro404 />} />
       </Routes>
