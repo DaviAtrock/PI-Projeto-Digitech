@@ -1,12 +1,13 @@
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
+import Navbar2 from "../components/Navbar2"
 import "./Home.css"
 
 export default function Home() {
 
   return (
     <>
-      <Navbar />
+      <Navbar2 />
       <main>
         <div className="container" id="carousel">
           <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">

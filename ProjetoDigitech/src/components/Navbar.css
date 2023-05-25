@@ -12,7 +12,7 @@ header {
     align-items: center;
   }
   
-  .menu-icon {
+  /* .menu-icon {
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -23,6 +23,30 @@ header {
     width: 25px;
     margin: 3px 0;
     background-color: #333;
+  } */
+
+  /*-- CSS DO MENU SANDUICHE --*/
+
+  .menu-icon.open {
+    transform: rotate(90deg);
+  }
+  
+  .search-box.open {
+    display: flex;
+  }
+  
+  .search-box.open input[type="text"] {
+    width: 200px; /* ou qualquer outro valor desejado */
+  }
+  
+  .search-box.open button {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .search-box.open input[type="text"] {
+      width: 100%; /* Define a largura total no modo de exibição móvel */
+    }
   }
   
   .logo {
