@@ -56,7 +56,7 @@ export default function Home() {
       </main>
 
       <section id="produtos" className="container my-5">
-        <h2 className="text-left mb-4">Produtos em destaque</h2>
+        <h2 className="text-left mb-4 title">Produtos em destaque</h2>
         <div className="row row-cols-1 row-cols-md-5 g-4">
           <div className="col">
             <div className="card h-100">
