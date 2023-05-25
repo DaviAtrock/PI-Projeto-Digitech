@@ -16,6 +16,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="Carrinho" element={<Carrinho />} />
         <Route path="Login" element={<Login />} />
+        <Route path="*" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>
   )
