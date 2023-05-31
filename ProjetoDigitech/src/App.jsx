@@ -8,6 +8,7 @@ import Carrinho from './pages/Carrinho'
 import Login from './pages/Login'
 import Perfil from './pages/Perfil'
 import Cadastro from './pages/Cadastro'
+import SobreNos from './pages/SobreNos'
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="Login" element={<Login />} />
         <Route path="*" element={<Erro404 />} />
         <Route path="Cadastro" element={<Cadastro />} />
+        <Route path="SobreNos" element={<SobreNos />} />
       </Routes>
     </BrowserRouter>
   )

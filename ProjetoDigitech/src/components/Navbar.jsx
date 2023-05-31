@@ -30,16 +30,16 @@ export default function Header() {
                 </div>
                 <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div className="offcanvas-header">
-                        <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Departamentos</h5>
+                        <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
                         <button type="button" className="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li className="nav-item">
-                                <Link to="/">Home</Link>
+                                <Link to="/Perfil">Perfil</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/Perfil">Perfil</Link>
+                                <Link to="/SobreNos">Sobre Nós</Link>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
