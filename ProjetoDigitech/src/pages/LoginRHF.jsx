@@ -14,7 +14,7 @@ export default function LoginRHF(props) {
             value: true,
             message: "Email obrigatório"
         }
-        
+
     }
 
     const validaSenha = {
@@ -45,10 +45,12 @@ export default function LoginRHF(props) {
                 <input type="password" id="senha" {...register("senha", validaSenha)} />
                 {errors.senha && <p>{errors.senha.message}</p>}
             </div>
-            
+            <div>
                 <button>Entrar</button>
-            
+                <button type="button" onClick={() => navigate('/Cadastro')}>
+                    Cadastrar-se
+                </button>
+            </div>
         </form>
     )
-
 }

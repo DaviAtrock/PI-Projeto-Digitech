@@ -43,7 +43,7 @@ export default function Header() {
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Categorias
+                                    DEPARTAMENTOS
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" href="#">Celulares</a></li>
@@ -59,6 +59,5 @@ export default function Header() {
                 </div>
             </div>
         </nav>
-
     );
 }

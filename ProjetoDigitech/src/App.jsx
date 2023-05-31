@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import Carrinho from './pages/Carrinho'
 import Login from './pages/Login'
 import Perfil from './pages/Perfil'
+import Cadastro from './pages/Cadastro'
+
 
 export default function App() {
   // const { logado } = useContext(UserContext)
@@ -19,6 +21,7 @@ export default function App() {
         <Route path="Perfil" element={<Perfil />} />
         <Route path="Login" element={<Login />} />
         <Route path="*" element={<Erro404 />} />
+        <Route path="Cadastro" element={<Cadastro />} />
       </Routes>
     </BrowserRouter>
   )
