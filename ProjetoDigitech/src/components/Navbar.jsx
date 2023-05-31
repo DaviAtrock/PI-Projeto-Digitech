@@ -14,7 +14,7 @@ export default function Header() {
                     </button>
                     <Link to="/" className="navbar-brand">LOGO</Link>
                 </div>
-                <div className="d-flex justify-content-center align-items-center mt-3">
+                <div className="d-flex justify-content-center align-items-center mt-1">
                     <form className="d-flex" id="search-form">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button><BsSearch /></button>
