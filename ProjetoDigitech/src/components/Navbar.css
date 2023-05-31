@@ -3,13 +3,22 @@
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
 }
 
+.nav-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-item a:hover {
+  color: lightgrey;
+}
+
 #search-form button {
   background-color: #fa8334;
   border: none;
 }
 
 #offcanvasDarkNavbar {
-  background-color: lightgrey;
+  background-color: #fff;
 }
 
 .logo {
