@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './Hardware.css';
 
-function Hardware() {
+export default function Hardware() {
     // Aqui você pode adicionar a lógica para obter os produtos da categoria "Hardware" e armazená-los em uma variável
     
     const produtos = [
@@ -54,6 +54,4 @@ function Hardware() {
         <Footer />
       </div>
     );
-  }
-  
-  export default Hardware;  
+  } 
