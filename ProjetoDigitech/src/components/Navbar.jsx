@@ -1,9 +1,28 @@
 import { BsSearch, BsCart, BsPerson } from 'react-icons/bs';
 import './Navbar.css';
 import { Link } from "react-router-dom";
-// import { useState } from 'react';
+import { useState } from 'react';
 
 export default function Header() {
+    const [searchQuery, setSearchQuery] = useState(""); // Estado para armazenar a consulta de pesquisa
+
+    // Função para lidar com o envio do formulário de pesquisa
+    const handleSearchSubmit = (event) => {
+        event.preventDefault();
+        // Coloque aqui a lógica para lidar com a pesquisa, por exemplo, redirecionar para a página de resultados de pesquisa
+        console.log("Pesquisar por:", searchQuery);
+    };
+
+    // Função para lidar com o clique no botão de busca
+    const handleSearchClick = () => {
+        // Coloque aqui a lógica para lidar com o clique no botão de busca, por exemplo, executar a pesquisa imediatamente
+        console.log("Pesquisar por:", searchQuery);
+    };
+
+    // Função para atualizar a consulta de pesquisa no estado
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
 
     return (
         <nav className="navbar fixed-top">
@@ -15,9 +34,9 @@ export default function Header() {
                     <Link to="/" className="navbar-brand">LOGO</Link>
                 </div>
                 <div className="d-flex justify-content-center align-items-center mt-1">
-                    <form className="d-flex" id="search-form">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button><BsSearch /></button>
+                    <form className="d-flex" id="search-form" onSubmit={handleSearchSubmit}>
+                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={searchQuery} onChange={handleSearchChange} />
+                        <button type="submit" onClick={handleSearchClick}><BsSearch /></button>
                     </form>
                 </div>
                 <div className="d-flex">
