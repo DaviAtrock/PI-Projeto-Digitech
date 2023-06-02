@@ -67,10 +67,10 @@ export default function Header() {
                                 <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" href="#">Celulares</a></li>
                                     <li><a className="dropdown-item" href="#">Computadores</a></li>
-                                    <li><a className="dropdown-item" href="#">Hardware</a></li>
+                                    <li><Link className="dropdown-item" to="/Hardware">Hardware</Link></li>
                                     <li><a className="dropdown-item" href="#">Periféricos</a></li>
                                     <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" href="#">Mais algo aqui</a></li>
+                                    <li><a className="dropdown-item" href="#">Contate-nos</a></li>
                                 </ul>
                             </li>
                         </ul>

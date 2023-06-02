@@ -10,6 +10,7 @@ import Perfil from './pages/Perfil'
 import Cadastro from './pages/Cadastro'
 import SobreNos from './pages/SobreNos'
 import Pesquisa from './pages/Pesquisa'
+import Hardware from './pages/Hardware'
 
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="Cadastro" element={<Cadastro />} />
         <Route path="SobreNos" element={<SobreNos />} />
         <Route path="Pesquisa" element={<Pesquisa />} />
+        <Route path="Hardware" element={<Hardware />} />
       </Routes>
     </BrowserRouter>
   )
