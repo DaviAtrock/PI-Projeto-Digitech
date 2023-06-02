@@ -1,0 +1,11 @@
+#grid-hardware {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+}
+
+#titulo-hardware {
+    display: flex;
+    margin-top: 10vh;
+}
