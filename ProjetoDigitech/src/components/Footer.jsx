@@ -7,10 +7,10 @@ export default function Footer() {
         <>
             <footer>
                 <div className="social-icons">
-                    <a href="..." target="_blank"><BsFacebook /></a>
-                    <a href="..." target="_blank"><BsInstagram /><i /></a>
-                    <a href="..." target="_blank"><BsWhatsapp /></a>
-                    <a href="..." target="_blank"><BsTelegram /></a>
+                    <a href="https://www.facebook.com/davi.atrock/" target="_blank"><BsFacebook /></a>
+                    <a href="https://www.instagram.com/" target="_blank"><BsInstagram /><i /></a>
+                    <a href="https://web.whatsapp.com/" target="_blank"><BsWhatsapp /></a>
+                    <a href="https://web.telegram.org/" target="_blank"><BsTelegram /></a>
                 </div>
             </footer>
         </>
