@@ -1,10 +1,52 @@
-import './Carrinho.css';
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import React, { useState } from 'react';
 import { BsFileMinus, BsFilePlus, BsX } from 'react-icons/bs';
+import './Carrinho.css';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 
 export default function Carrinho() {
+  const [quantidades, setQuantidades] = useState([2, 2, 2]); // Estado para as quantidades dos produtos
+  const precos = [2589.99, 2589.99, 2589.99]; // Array de preços dos produtos
+
+  // Função para decrementar a quantidade de um produto
+  const decrementarQuantidade = (index) => {
+    const novasQuantidades = [...quantidades];
+    if (novasQuantidades[index] > 1) {
+      novasQuantidades[index] -= 1;
+      setQuantidades(novasQuantidades);
+    }
+  };
+
+  // Função para incrementar a quantidade de um produto
+  const incrementarQuantidade = (index) => {
+    const novasQuantidades = [...quantidades];
+    novasQuantidades[index] += 1;
+    setQuantidades(novasQuantidades);
+  };
+
+  // Função para remover um produto do carrinho
+  const removerProduto = (index) => {
+    const novasQuantidades = [...quantidades];
+    novasQuantidades.splice(index, 1);
+    setQuantidades(novasQuantidades);
+  };
+
+  // Função para calcular o subtotal do carrinho
+  const calcularSubtotal = () => {
+    let subtotal = 0;
+    for (let i = 0; i < quantidades.length; i++) {
+      subtotal += quantidades[i] * precos[i];
+    }
+    return subtotal.toFixed(2);
+  };
+
+  // Função para calcular o total do carrinho
+  const calcularTotal = () => {
+    const subtotal = calcularSubtotal();
+    const frete = 0; // Supondo frete gratuito
+    return (Number(subtotal) + Number(frete)).toFixed(2);
+  };
 
   return (
     <>
@@ -24,75 +66,38 @@ export default function Carrinho() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <div className="product">
-                      <img src="img/placadevideo-card2.jpg" alt="" />
-                      <div className="info">
-                        <div className="name">Placa de Vídeo RTX 3060 TI PNY</div>
-                        <div className="category">Hardware</div>
+                {/* Renderizar linhas de produtos com base no estado das quantidades */}
+                {quantidades.map((quantidade, index) => (
+                  <tr key={index}>
+                    <td>
+                      <div className="product">
+                        <img src="img/placadevideo-card2.jpg" alt="" />
+                        <div className="info">
+                          <div className="name">Placa de Vídeo RTX 3060 TI PNY</div>
+                          <div className="category">Hardware</div>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td>R$ 2.589,99</td>
-                  <td>
-                    <div className="qty">
-                      <button><BsFileMinus /></button>
-                      <span>2</span>
-                      <button><BsFilePlus /></button>
-                    </div>
-                  </td>
-                  <td>R$ 2.589,99</td>
-                  <td>
-                    <button className="remove"><BsX /></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div className="product">
-                      <img src="img/notebook-lenovo-card3.jpg" alt="" />
-                      <div className="info">
-                        <div className="name">Notebook Gamer Lenovo Gaming 3i Intel Core i5.</div>
-                        <div className="category">Notebook</div>
+                    </td>
+                    <td>R$ {precos[index]}</td>
+                    <td>
+                      <div className="qty">
+                        <button onClick={() => decrementarQuantidade(index)}>
+                          <BsFileMinus />
+                        </button>
+                        <span>{quantidade}</span>
+                        <button onClick={() => incrementarQuantidade(index)}>
+                          <BsFilePlus />
+                        </button>
                       </div>
-                    </div>
-                  </td>
-                  <td>R$ 3.799,99</td>
-                  <td>
-                    <div className="qty">
-                      <button><button><BsFileMinus /></button></button>
-                      <span>2</span>
-                      <button><BsFilePlus /></button>
-                    </div>
-                  </td>
-                  <td>R$ 3.799,99</td>
-                  <td>
-                    <button className="remove"><BsX /></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div className="product">
-                      <img src="img/monitor-gamer-card4.jpg" alt="" />
-                      <div className="info">
-                        <div className="name">Monitor Gamer Husky Tempest 34' VA, Ultrawide.</div>
-                        <div className="category">Periféricos</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>R$ 1.999,99</td>
-                  <td>
-                    <div className="qty">
-                      <button><BsFileMinus /></button>
-                      <span>2</span>
-                      <button><BsFilePlus /></button>
-                    </div>
-                  </td>
-                  <td>R$ 1.999,99</td>
-                  <td>
-                    <button className="remove"><BsX /></button>
-                  </td>
-                </tr>
+                    </td>
+                    <td>R$ {(quantidade * precos[index]).toFixed(2)}</td>
+                    <td>
+                      <button className="remove" onClick={() => removerProduto(index)}>
+                        <BsX />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </section>
@@ -100,8 +105,14 @@ export default function Carrinho() {
             <div className="box">
               <header >Resumo da compra</header>
               <div className="info">
-                <div><span>Sub-total</span><span>R$ 8.389,97</span></div>
-                <div><span>Frete</span><span>Gratuito</span></div>
+                <div>
+                  <span>Sub-total</span>
+                  <span>R$ {calcularSubtotal()}</span>
+                </div>
+                <div>
+                  <span>Frete</span>
+                  <span>Gratuito</span>
+                </div>
                 <div>
                   <button>
                     Adicionar cupom de desconto
@@ -111,7 +122,7 @@ export default function Carrinho() {
               </div>
               <footer>
                 <span>Total</span>
-                <span>R$ 8.389,97</span>
+                <span>R$ {calcularTotal()}</span>
               </footer>
             </div>
             <button>Finalizar Compra</button>
