@@ -11,7 +11,7 @@ import Cadastro from './pages/Cadastro'
 import SobreNos from './pages/SobreNos'
 import Pesquisa from './pages/Pesquisa'
 import Hardware from './pages/Hardware'
-
+import Perifericos from './pages/Perifericos'
 
 export default function App() {
   // const { logado } = useContext(UserContext)
@@ -28,6 +28,7 @@ export default function App() {
         <Route path="SobreNos" element={<SobreNos />} />
         <Route path="Pesquisa" element={<Pesquisa />} />
         <Route path="Hardware" element={<Hardware />} />
+        <Route path="Perifericos" element={<Perifericos />} />
       </Routes>
     </BrowserRouter>
   )

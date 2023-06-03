@@ -1,11 +1,11 @@
-#grid-hardware {
+#grid-perifericos {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh; 
 }
 
-#titulo-hardware {
+#titulo-perifericos {
     display: flex;
     margin-top: 10vh;
 }

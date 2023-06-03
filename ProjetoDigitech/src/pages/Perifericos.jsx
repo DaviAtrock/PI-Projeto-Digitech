@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import './Hardware.css';
+import './Perifericos.css';
 
 export default function Perifericos() {
     // Aqui você pode adicionar a lógica para obter os produtos da categoria "Hardware" e armazená-los em uma variável
@@ -10,32 +10,32 @@ export default function Perifericos() {
       // Exemplo de produtos da categoria "Hardware"
       {
         id: 1,
-        nome: 'RTX 3060 Ti',
-        descricao: 'Placa de Video RTX 3060 TI Dual Fan PNY NVIDIA.',
-        imagem: 'img/placadevideo-card2.jpg',
+        nome: 'Monitor Gamer Husky',
+        descricao: 'Monitor Gamer Husky Tempest 34 Ultrawide.',
+        imagem: 'img/monitor-gamer-card4.jpg',
       },
       {
         id: 2,
-        nome: 'Placa Mãe MSI',
-        descricao: 'Placa Mãe MSI A520M-A PRO, AMD AM4, mATX.',
-        imagem: 'img/placamae-card6.jpg',
+        nome: 'HyperX Cloud Alpha',
+        descricao: 'Headset Gamer Sem fio HyperX Cloud Alpha.',
+        imagem: 'img/headset-card7.jpg',
       },
       {
         id: 3,
-        nome: 'Memória XPG',
-        descricao: 'Memória XPG Gammix D10, 8GB, 3200MHz, DDR4.',
-        imagem: 'img/memoria-card8.jpg',
+        nome: 'Mouse Razer Viper',
+        descricao: 'Mouse Sem Fio Gamer Razer Viper Ultimate.',
+        imagem: 'img/mouserazer-card9.jpg',
       },
       // Adicione mais produtos aqui
     ];
   
     return (
-      <div className="hardware-page">
+      <div className="perifericos-page">
         <Navbar />
   
         <section className="container my-5">
-          <h2 className="text-left mb-4 title" id="titulo-hardware">Produtos de Hardware</h2>
-          <div className="row row-cols-1 row-cols-md-5 g-4" id="grid-hardware">
+          <h2 className="text-left mb-4 title" id="titulo-perifericos">Periféricos</h2>
+          <div className="row row-cols-1 row-cols-md-5 g-4" id="grid-perifericos">
             {produtos.map((produto) => (
               <div className="col" key={produto.id}>
                 <div className="card h-100">
@@ -43,7 +43,7 @@ export default function Perifericos() {
                   <div className="card-body">
                     <h5 className="card-title">{produto.nome}</h5>
                     <p className="card-text">{produto.descricao}</p>
-                    <a href="#" className="btn btn-primary">Comprar</a>
+                    <a href="#" className="btn btn-primary">Saiba Mais</a>
                   </div>
                 </div>
               </div>
