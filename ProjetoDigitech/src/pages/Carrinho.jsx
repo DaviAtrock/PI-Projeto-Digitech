@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BsFileMinus, BsFilePlus, BsX } from 'react-icons/bs';
+import { Link } from 'react-router-dom'
 import './Carrinho.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -125,7 +126,9 @@ export default function Carrinho() {
                 <span>R$ {calcularTotal()}</span>
               </footer>
             </div>
-            <button>Finalizar Compra</button>
+            <button>
+            <Link to="/FinalizarCompra" className="finalizar-compra">Finalizar Compra</Link>
+            </button>
           </aside>
         </div>
       </main>

@@ -1,0 +1,76 @@
+.navbar {
+    background-color: #fa8334;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .nav-item a:hover {
+    color: lightgrey;
+  }
+  
+  #search-form button {
+    background-color: #fa8334;
+    border: none;
+  }
+  
+  #offcanvasDarkNavbar {
+    background-color: #fff;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .logo a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  main {
+    margin-top: 30px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #fa8334;
+  }
+  
+  .carousel-img {
+    height: 500px;
+    width: 100%;
+  }
+  
+  #carousel {
+    max-width: 80%;
+    margin-top: 5em;
+  }
+  
+  @media (max-width: 480px) {
+    .carousel-img {
+      height: 200px;
+    }
+  }
+  
+  footer {
+    flex-shrink: 0;
+    background-color: #fa8334;
+    padding: 20px;
+  }
+  
+  .social-icons {
+    text-align: right;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    margin: 5px;
+  }
+  
+  .social-icons a:hover {
+    background-color: #fa8334;
+  }
+  

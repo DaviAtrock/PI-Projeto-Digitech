@@ -232,3 +232,8 @@ aside>button {
 aside>button:hover {
     background: #3bc55b;
 }
+
+.finalizar-compra {
+    text-decoration: none;
+    color: #fff;
+}
