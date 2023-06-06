@@ -65,10 +65,11 @@ export default function Header() {
                                     DEPARTAMENTOS
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Celulares</a></li>
-                                    <li><a className="dropdown-item" href="#">Computadores</a></li>
+                                    <li><Link className="dropdown-item" to="/CelularesTab">Celulares/Tablets</Link></li>
+                                    <li><Link className="dropdown-item" to="/Computadores">Computadores</Link></li>
+                                    <li><Link className="dropdown-item" to="/Games">Games</Link></li>
                                     <li><Link className="dropdown-item" to="/Hardware">Hardware</Link></li>
-                                    <li> <Link className="dropdown-item" to="/Perifericos">Periféricos </Link></li>
+                                    <li><Link className="dropdown-item" to="/Perifericos">Periféricos</Link></li>
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><a className="dropdown-item" href="#">Contate-nos</a></li>
                                 </ul>

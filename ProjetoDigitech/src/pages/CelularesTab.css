@@ -1,11 +1,11 @@
-#grid-computadores {
+#grid-celularestab {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh; 
 }
 
-#titulo-computadores {
+#titulo-celularestab {
     display: flex;
     margin-top: 10vh;
 }

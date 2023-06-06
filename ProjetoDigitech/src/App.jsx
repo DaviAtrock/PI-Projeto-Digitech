@@ -12,6 +12,8 @@ import SobreNos from './pages/SobreNos'
 import Pesquisa from './pages/Pesquisa'
 import Hardware from './pages/Hardware'
 import Perifericos from './pages/Perifericos'
+import CelularesTab from './pages/CelularesTab'
+import Computadores from './pages/Computadores'
 
 export default function App() {
   // const { logado } = useContext(UserContext)
@@ -29,6 +31,9 @@ export default function App() {
         <Route path="Pesquisa" element={<Pesquisa />} />
         <Route path="Hardware" element={<Hardware />} />
         <Route path="Perifericos" element={<Perifericos />} />
+        <Route path="CelularesTab" element={<CelularesTab />} />
+        <Route path="Computadores" element={<Computadores />} />
+        {/* <Route path="Games" element={<Games />} /> */}
       </Routes>
     </BrowserRouter>
   )
