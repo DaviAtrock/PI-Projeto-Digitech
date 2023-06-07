@@ -5,7 +5,7 @@ export default function Footer() {
 
     return (
         <>
-            <footer>
+            <footer className="footer-geral">
                 <div className="social-icons">
                     <a href="https://www.facebook.com/davi.atrock/" target="_blank"><BsFacebook /></a>
                     <a href="https://www.instagram.com/" target="_blank"><BsInstagram /><i /></a>

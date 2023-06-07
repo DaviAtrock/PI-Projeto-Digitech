@@ -29,7 +29,7 @@ export default function Cadastro() {
   return (
     <>
       <Navbar />
-      <div className="container">
+      <div className="container-cadastro">
         <h1>Cadastre-se</h1>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">

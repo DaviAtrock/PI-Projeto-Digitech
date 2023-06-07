@@ -1,8 +1,12 @@
+body {
+    margin: 0;
+}
+
 #grid-perifericos {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; 
+    height: 100vh;
 }
 
 #titulo-perifericos {

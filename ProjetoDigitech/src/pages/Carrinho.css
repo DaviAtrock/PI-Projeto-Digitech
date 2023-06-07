@@ -1,22 +1,25 @@
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
-    background: #f6f6f6;
+    margin: 0;
 }
 
 main {
-    background: #fff;
-    padding: 0 30px 30px;
+    min-height: calc(100vh - 100px);
+    padding: 5em;
+}
+
+.footer-compra {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 main .page-title {
     font-size: 40px;
     padding: 50px 0;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 main .content {
@@ -166,10 +169,10 @@ aside .box {
     color: #222;
 }
 
-aside .box header {
+aside .header-resumo {
     padding: 15px 20px;
     font-size: 18px;
-    border-bottom: 1px solid #ccc;
+    background-color: #fa8334;
 }
 
 aside .box .info {
@@ -233,7 +236,12 @@ aside>button:hover {
     background: #3bc55b;
 }
 
+aside>button a:hover {
+    background: #3bc55b;
+    color: #fff;
+}
+
 .finalizar-compra {
     text-decoration: none;
-    color: #fff;
+    color: lightgrey;
 }

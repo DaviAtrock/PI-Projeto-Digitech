@@ -55,7 +55,7 @@ export default function Carrinho() {
       <main>
         <div className="page-title">Seu Carrinho</div>
         <div className="content">
-          <section>
+          <section className="sec-carrinho">
             <table>
               <thead>
                 <tr>
@@ -104,7 +104,7 @@ export default function Carrinho() {
           </section>
           <aside>
             <div className="box">
-              <header >Resumo da compra</header>
+              <header className="header-resumo">Resumo da compra</header>
               <div className="info">
                 <div>
                   <span>Sub-total</span>
@@ -121,13 +121,13 @@ export default function Carrinho() {
                   </button>
                 </div>
               </div>
-              <footer>
+              <footer className="footer-compra">
                 <span>Total</span>
                 <span>R$ {calcularTotal()}</span>
               </footer>
             </div>
             <button>
-            <Link to="/FinalizarCompra" className="finalizar-compra">Finalizar Compra</Link>
+              <Link to="/FinalizarCompra" className="finalizar-compra">Finalizar Compra</Link>
             </button>
           </aside>
         </div>

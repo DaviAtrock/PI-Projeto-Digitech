@@ -25,25 +25,25 @@ export default function FinalizarCompra() {
       <main>
         <div className="page-title">Finalizar Compra</div>
         <div className="content">
-          <section>
+          <section className="sec-compra">
             {/* Renderizar resumo da compra */}
             <div className="box">
-              <header>Resumo da compra</header>
+              <header className="header-fincompra">Resumo da compra</header>
               {/* Incluir detalhes da compra, como produtos, quantidades, preços, etc. */}
             </div>
           </section>
           <aside>
             <div className="box">
-              <header>Forma de Pagamento</header>
+              <header className="header-fin">Forma de Pagamento</header>
               <div className="payment-options">
                 {/* Opção Banco do Brasil */}
                 <div className="payment-option">
-                  <img src="path/to/bancodobrasil-logo.png" alt="Banco do Brasil" />
+                  <img src="img/logo-banco-do-brasil-256.png" alt="Banco do Brasil" />
                   <button onClick={finalizarCompraBancoDoBrasil}>Pagar com Banco do Brasil</button>
                 </div>
                 {/* Opção Pix */}
                 <div className="payment-option">
-                  <img src="path/to/pix-logo.png" alt="Pix" />
+                  <img src="img/logo-pix-256.png" alt="Pix" />
                   <button onClick={finalizarCompraPix}>Pagar com Pix</button>
                 </div>
               </div>
