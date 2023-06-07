@@ -1,11 +1,11 @@
-/* import { useHistory } from 'react-router-dom'; */
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import './FinalizarCompra.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 export default function FinalizarCompra() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   // Função para redirecionar para o serviço de pagamento do Banco do Brasil
   const finalizarCompraBancoDoBrasil = () => {
