@@ -1,8 +1,7 @@
-
-// import LoginForm from "./LoginForm";
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
-import LoginRHF from "./LoginRHF"
+import LoginForm from "../pages/LoginForm"
+
 
 export default function Login(props) {
 
@@ -10,8 +9,7 @@ export default function Login(props) {
         <>
             <Navbar />
             <h1>Login</h1>
-            {/* <LoginForm onSubmit={handleClick} /> */}
-            <LoginRHF />
+            <LoginForm />
             <Footer />
         </>
     )

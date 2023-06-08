@@ -20,9 +20,9 @@ export default function Home() {
             </div>
             <div className="carousel-inner mx-auto" style={{ width: "1600px" }}>
               <div className="carousel-item active">
-                <img src="img/bannercomputadores.jpg" className="d-block w-100 carousel-img" alt="..." />
+                <img src="img/ASUS-Z790-Series.png" className="d-block w-100 carousel-img" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
-                  <h5>Novas Placas RTX</h5>
+                  <h5>Novas Placas Asus</h5>
                   <p>Confira os últimos lançamentos.</p>
                 </div>
               </div>

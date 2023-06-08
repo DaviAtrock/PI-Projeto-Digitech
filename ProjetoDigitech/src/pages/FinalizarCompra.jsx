@@ -23,7 +23,7 @@ export default function FinalizarCompra() {
     <>
       <Navbar />
       <main>
-        <div className="page-title">Finalizar Compra</div>
+        <div className="page-title">Sua Compra</div>
         <div className="content">
           <section className="sec-compra">
             {/* Renderizar resumo da compra */}

@@ -1,9 +1,8 @@
-// import { useContext } from 'react'
+import { useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-// import Layout from './components/Layout'
 import Erro404 from './pages/Erro404'
 import Home from './pages/Home'
-// import UserContext from './contexts/UserContext'
+import UserContext from './contexts/UserContext'
 import Carrinho from './pages/Carrinho'
 import Login from './pages/Login'
 import Perfil from './pages/Perfil'
@@ -17,16 +16,13 @@ import Computadores from './pages/Computadores'
 import FinalizarCompra from './pages/FinalizarCompra'
 
 export default function App() {
-  // const { logado } = useContext(UserContext)
+  const { logado } = useContext(UserContext)
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="Carrinho" element={<Carrinho />} />
-        <Route path="Perfil" element={<Perfil />} />
-        <Route path="Login" element={<Login />} />
-        <Route path="*" element={<Erro404 />} />
         <Route path="Cadastro" element={<Cadastro />} />
         <Route path="SobreNos" element={<SobreNos />} />
         <Route path="Pesquisa" element={<Pesquisa />} />
@@ -34,9 +30,19 @@ export default function App() {
         <Route path="Perifericos" element={<Perifericos />} />
         <Route path="CelularesTab" element={<CelularesTab />} />
         <Route path="Computadores" element={<Computadores />} />
-        <Route path="FinalizarCompra" element={<FinalizarCompra />} />
-        {/* <Route path="Games" element={<Games />} /> */}
+        <Route path="Perfil" element={<Perfil />} />
+        {logado ? (
+          <>
+            <Route path="FinalizarCompra" element={<FinalizarCompra />} />
+            
+          </>
+        ) : (
+          <Navigate to="/Login" replace={true} />
+        )}
+
+        <Route path="Login" element={<Login />} />
+        <Route path="*" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }

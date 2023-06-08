@@ -1,35 +1,45 @@
-import { createContext, useState } from "react"
+import { createContext, useState } from 'react'
+import { login, logout } from '../services/AuthService'
+
 
 const UserContext = createContext({
-    userID: null,
-    logado: false,
-    handleLogin: () => { },
-    handleLogout: () => { },
+  userId: null,
+  logado: false,
+  handleLogin: () => { },
+  handleLogout: () => { },
 })
 
 export function UserContextProvider(props) {
-    const [currentUser, setCurrentUser] = useState({ userID: null, logado: false })
 
-    function login() {
-        setCurrentUser({ userID: 100, logado: true })
-     }
+  const [currentUser, setCurrentUser] = useState({ userId: null, logado: true })
 
-    function logout() {
-        setCurrentUser({ userID: null, logado: false })
-     }
+  async function handleLogin(email, senha) {
+    try {
+    const id = await login(email, senha)
+    setCurrentUser({ userId: id, logado: true })
+  } catch (error) {
+    throw Error (error.message)
+  }
 
-     const contexto = {
-        userID: currentUser.userID,
-        logado: currentUser.logado,
-        handleLogin: login,
-        handleLogout: logout,
-     }
+}
 
-    return (
-        <UserContext.Provider value={contexto}>
-            {props.children}
-        </UserContext.Provider>
-    )
+  async function handleLogout() {
+    await logout()
+    setCurrentUser({ userId: null, logado: false })
+  }
+
+  const contexto = {
+    userId: currentUser.userId,
+    logado: currentUser.logado,
+    handleLogin,
+    handleLogout,
+  }
+
+  return (
+    <UserContext.Provider value={contexto}>
+      {props.children}
+    </UserContext.Provider>
+  )
 }
 
 export default UserContext
