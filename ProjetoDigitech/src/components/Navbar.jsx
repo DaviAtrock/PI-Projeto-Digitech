@@ -1,4 +1,4 @@
-import { BsSearch, BsCart, BsPerson } from 'react-icons/bs';
+import { BsSearch, BsFillCartFill, BsFillPersonFill, BsFillKeyFill } from 'react-icons/bs';
 import './Navbar.css';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
@@ -52,10 +52,13 @@ export default function Header() {
                 </div>
                 <div className="d-flex">
                     <Link to="/Carrinho" className="cart-icon me-3">
-                        <BsCart className="bi bi-cart" style={{ color: "black" }} />
+                        <BsFillCartFill className="bi bi-cart" style={{ color: "black" }} />
                     </Link>
-                    <Link to="/Login" className="login-icon">
-                        <BsPerson className="bi bi-person" style={{ color: "black" }} />
+                    <Link to="/Perfil" className="perfil-icon me-3">
+                        <BsFillPersonFill className="bi bi-person" style={{ color: "black" }} />
+                    </Link>
+                    <Link to="/Login" className="login-icon me-3">
+                        <BsFillKeyFill className="bi bi-person" style={{ color: "black" }} />
                     </Link>
                 </div>
                 <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
