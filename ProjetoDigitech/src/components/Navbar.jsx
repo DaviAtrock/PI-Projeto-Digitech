@@ -15,8 +15,19 @@ export default function Header() {
 
     // Função para lidar com o clique no botão de busca
     const handleSearchClick = () => {
-        // Coloque aqui a lógica para lidar com o clique no botão de busca, por exemplo, executar a pesquisa imediatamente
-        console.log("Pesquisar por:", searchQuery);
+        if (searchQuery !== "") {
+            // Faz a solicitação HTTP para buscar os resultados da pesquisa
+            fetch(`https://api.example.com/search?q=${searchQuery}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Aqui você pode lidar com os dados da resposta da API
+                    console.log("Resultados da pesquisa:", data);
+                })
+                .catch(error => {
+                    // Lidar com erros na solicitação HTTP
+                    console.error("Erro na solicitação de pesquisa:", error);
+                });
+        }
     };
 
     // Função para atualizar a consulta de pesquisa no estado
