@@ -52,32 +52,16 @@ export default function LoginForm(props) {
           {errorLogin && <p className="erro">{errorLogin}</p>}
           <div>
             <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              {...register("email", validaEmail)}
-              className="rounded-input"
-            />
+            <input type="email" id="email" {...register("email", validaEmail)} className="rounded-input" />
             {errors.email && <p className="erro">{errors.email.message}</p>}
           </div>
           <div>
             <label htmlFor="senha">Senha</label>
-            <input
-              type="password"
-              id="senha"
-              {...register("senha", validaSenha)}
-              className="rounded-input"
-            />
+            <input type="password" id="senha" {...register("senha", validaSenha)} className="rounded-input" />
             {errors.senha && <p className="erro">{errors.senha.message}</p>}
           </div>
           <button className="btn-submit login mt-2">Entrar</button>
-          <button
-            type="button"
-            onClick={() => navigate('/Cadastro')}
-            className="btn-submit login mt-2"
-          >
-            Cadastrar-se
-          </button>
+          <button type="button" onClick={() => navigate('/Cadastro')} className="btn-submit login mt-2">Cadastrar-se</button>
         </form>
       </div>
     </div>
