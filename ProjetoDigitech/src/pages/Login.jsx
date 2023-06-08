@@ -8,7 +8,6 @@ export default function Login(props) {
     return (
         <>
             <Navbar />
-            <h1>Login</h1>
             <LoginForm />
             <Footer />
         </>

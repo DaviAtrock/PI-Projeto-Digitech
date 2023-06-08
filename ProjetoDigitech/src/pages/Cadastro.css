@@ -14,10 +14,10 @@ body {
 
 .form {
   width: 300px;
-  background-color: #fff;
+  background-color: aliceblue;
   padding: 20px;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .form-group {
@@ -61,12 +61,6 @@ input[type="password"] {
 }
 
 .form-control.focused {
-
-
   border-color: #ffffff;
-
-
-
-
   box-shadow: 0 0 3px #fa8334;
 }

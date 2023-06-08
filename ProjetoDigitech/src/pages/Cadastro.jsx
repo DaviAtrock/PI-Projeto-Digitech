@@ -72,7 +72,7 @@ export default function Cadastro() {
             {errors.senha && <p className="error">{errors.senha.message}</p>}
           </div>
           <div className="form-group">
-            <button type="submit" className="btn-submit">Enviar</button>
+            <button type="submit" className="btn-submit mt-5">Enviar</button>
           </div>
         </form>
       </div>
