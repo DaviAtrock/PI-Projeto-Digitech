@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { BsFileMinus, BsFilePlus, BsX } from 'react-icons/bs';
+import React, { useState } from 'react'
+import { BsFileMinus, BsFilePlus, BsX } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './Carrinho.css';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 
 export default function Carrinho() {

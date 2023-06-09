@@ -1,67 +1,51 @@
-import { useState } from 'react';
-import React from 'react';
-import './Perfil.css'
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-const ProfilePage = () => {
-    const [selectedProducts, setSelectedProducts] = useState([]);
 
-    const produtos = [
-        { id: 1, nome: 'Item 1', preco: 10 },
-        { id: 2, nome: 'Item 2', preco: 20 },
-        { id: 3, nome: 'Item 3', preco: 15 },
-    ];
+function ProfilePage() {
+  const [orderHistory, setOrderHistory] = useState([
+    {
+      id: 1234,
+      status: 'Concluído',
+      total: 100.0
+    },
+    {
+      id: 5678,
+      status: 'Em andamento',
+      total: 50.0
+    }
+  ]);
 
-    const handleAddProduct = (product) => {
-        setSelectedProducts((prevSelectedProducts) => [...prevSelectedProducts, product]);
-    };
+  return (
+    <div>
+    <Navbar />
+      <h1>Perfil</h1>
+      <h2>Informações Pessoais</h2>
+      <p>Nome: John Doe</p>
+      <p>Endereço: 123 Main Street</p>
+      <p>Número de telefone: (123) 456-7890</p>
+      <p>E-mail: john.doe@example.com</p>
+      <img src="https://via.placeholder.com/150" alt="Foto de perfil" />
 
-    const handleRemoveProduct = (productId) => {
-        setSelectedProducts((prevSelectedProducts) =>
-            prevSelectedProducts.filter((product) => product.id !== productId)
-        );
-    };
+      <h2>Histórico de Pedidos</h2>
+      <ul>
+        {orderHistory.map(order => (
+          <li key={order.id}>
+            Pedido #{order.id} - Status: {order.status} - Total: R$ {order.total}
+          </li>
+        ))}
+      </ul>
 
-    const renderSelectedProducts = () => {
-        if (selectedProducts.length === 0) {
-            return <p>Nenhum produto selecionado.</p>;
-        }
+      <h2>Informações de Pagamento</h2>
+      <p>Método de pagamento: Cartão de Crédito</p>
 
-        return (
-            <ul>
-                {selectedProducts.map((product) => (
-                    <li key={product.id}>
-                        {product.nome} - Preço: R${product.preco}{' '}
-                        <button onClick={() => handleRemoveProduct(product.id)}>Remover</button>
-                    </li>
-                ))}
-            </ul>
-        );
-    };
-
-    return (
-        <>
-            <Navbar />
-            <div>
-                <h2>Perfil do Usuário</h2>
-
-                <h3>Resumo do Pedido</h3>
-                {renderSelectedProducts()}
-
-                <h3>Produtos Disponíveis</h3>
-                <ul>
-                    {produtos.map((product) => (
-                        <li key={product.id}>
-                            {product.nome} - Preço: R${product.preco}{' '}
-                            <button onClick={() => handleAddProduct(product)}>Adicionar</button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <Footer />
-        </>
-    );
-};
+      <h2>Preferências de Envio</h2>
+      <p>Endereço de entrega: 123 Main Street</p>
+      <p>Opções de envio: Entrega Expressa</p>
+      <Footer />
+    </div>
+  );
+}
 
 export default ProfilePage;
