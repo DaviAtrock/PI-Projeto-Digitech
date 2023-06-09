@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
-import { BsFileMinus, BsFilePlus, BsX } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
-import './Carrinho.css';
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+import { useState } from 'react';
+import { BsFileMinus, BsFilePlus, BsX } from 'react-icons/bs';
 
+import { useNavigate } from 'react-router-dom';
+import { products } from '../components/Produtos';
+import './Carrinho.css';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 export default function Carrinho() {
-  const [quantidades, setQuantidades] = useState([2, 2, 2]); // Estado para as quantidades dos produtos
-  const precos = [2589.99, 2589.99, 2589.99]; // Array de preços dos produtos
+  const navigate = useNavigate();
+
+  const [quantidades, setQuantidades] = useState(Array(products.length).fill(2)); // Estado para as quantidades dos produtos
+  const precos = products.map((produto) => parseFloat(produto.preco)); // Array de preços dos produtos
 
   // Função para decrementar a quantidade de um produto
   const decrementarQuantidade = (index) => {
@@ -50,6 +52,15 @@ export default function Carrinho() {
     return (Number(subtotal) + Number(frete)).toFixed(2);
   };
 
+  const finalizarCompra = () => {
+    const produtosSelecionados = quantidades.map((quantidade, index) => ({
+      produto: products[index],
+      quantidade: quantidade,
+    }));
+
+    navigate('/FinalizarCompra', { state: { produtos: produtosSelecionados } });
+  };
+
   return (
     <>
       <Navbar />
@@ -73,10 +84,10 @@ export default function Carrinho() {
                   <tr key={index}>
                     <td>
                       <div className="product">
-                        <img src="img/placadevideo-card2.jpg" alt="" />
+                        <img src={products[index].img} alt="" />
                         <div className="info">
-                          <div className="name">Placa de Vídeo RTX 3060 TI PNY</div>
-                          <div className="category">Hardware</div>
+                          <div className="name">{products[index].nome}</div>
+                          <div className="category">{products[index].descricao}</div>
                         </div>
                       </div>
                     </td>
@@ -127,13 +138,13 @@ export default function Carrinho() {
                 <span>R$ {calcularTotal()}</span>
               </footer>
             </div>
-            <button>
-              <Link to="/FinalizarCompra" className="finalizar-compra">Finalizar Compra</Link>
+            <button onClick={finalizarCompra} className="finalizar-compra">
+              Finalizar Compra
             </button>
           </aside>
         </div>
       </main>
       <Footer />
     </>
-  )
+  );
 }

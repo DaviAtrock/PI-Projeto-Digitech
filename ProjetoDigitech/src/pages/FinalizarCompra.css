@@ -60,3 +60,53 @@ aside .header-fin {
     height: 200px;
   }
 }
+
+.header-fin {
+  text-align: center;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-option img {
+  margin-top: 5px; 
+}
+
+.pix-logo {
+  width: 112px;
+  height: 63px;
+}
+
+.payment-option input[type="radio"] {
+  position: relative;
+  left: -27px;
+  top: 2px;
+}
+
+aside>button {
+  border: 0;
+  padding: 15px 0;
+  color: lightgray;
+  background: #28a745;
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+aside>button:hover {
+  background: #3bc55b;
+  color: #fff;
+}
+
+aside>button a:hover {
+  background: #3bc55b;
+}
+
+.confirmar-compra {
+  text-decoration: none;
+}

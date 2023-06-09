@@ -7,6 +7,10 @@ main {
     padding: 5em;
 }
 
+.header-resumo {
+    text-align: center;
+}
+
 .footer-compra {
     position: relative;
     margin-top: 20px;
@@ -223,7 +227,7 @@ aside .box footer {
 aside>button {
     border: 0;
     padding: 15px 0;
-    color: white;
+    color: lightgray;
     background: #28a745;
     display: block;
     width: 100%;
@@ -234,14 +238,13 @@ aside>button {
 
 aside>button:hover {
     background: #3bc55b;
+    color: #fff;
 }
 
 aside>button a:hover {
     background: #3bc55b;
-    color: #fff;
 }
 
 .finalizar-compra {
     text-decoration: none;
-    color: lightgrey;
 }

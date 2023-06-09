@@ -31,10 +31,9 @@ export default function App() {
         <Route path="CelularesTab" element={<CelularesTab />} />
         <Route path="Computadores" element={<Computadores />} />
         <Route path="Perfil" element={<Perfil />} />
-        <Route path="FinalizarCompra" element={<FinalizarCompra />} />
         {logado ? (
           <>
-            
+            <Route path="FinalizarCompra" element={<FinalizarCompra />} />
             
           </>
         ) : (
