@@ -1,7 +1,8 @@
 import { BsSearch, BsFillCartFill, BsFillPersonFill, BsFillKeyFill } from 'react-icons/bs';
-import './Navbar.css';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
+import './Navbar.css';
+import logoImg from '../assets/logo4.png'
 
 export default function Header() {
     const [searchQuery, setSearchQuery] = useState(""); // Estado para armazenar a consulta de pesquisa
@@ -42,7 +43,9 @@ export default function Header() {
                     <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <Link to="/" className="navbar-brand">LOGO</Link>
+                    <Link to="/" className="navbar-brand">
+                    <img src={logoImg} className="logo-img" alt="Logo" />
+                    </Link>
                 </div>
                 <div className="d-flex justify-content-center align-items-center mt-1">
                     <form className="d-flex" id="search-form" onSubmit={handleSearchSubmit}>
