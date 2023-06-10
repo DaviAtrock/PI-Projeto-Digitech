@@ -14,3 +14,16 @@ leticia.carol@gmail.com,
 bcaputo27@gmail.com,
 alekwendel@hotmail.com,
 adnybrandao@gmail.com
+
+Para rodar o site siga as etapas a seguir:
+
+1 - Abra o terminal no VsCode, navegue até a pasta "ProjetoDigitech", utilizando o comando "cd ProjetoDigitech".
+
+2 - Instale as seguintes dependências via npm, digitando os seguintes comandos no mesmo:
+
+npm install
+npm install firebase
+
+3 - Por ultimo, para rodar a aplicação digite o comando:
+
+npm run dev
