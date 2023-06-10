@@ -7,13 +7,37 @@ main {
     padding: 5em;
 }
 
-
-
-@media (max-width: 480px) {
-    .carousel-img {
-        height: 200px;
+@media (max-width: 720px) {
+    #carousel {
+        margin-top: 50px;
     }
 }
+
+/* @media (max-width: 720px) {
+    #cat-prod {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        margin-left: -1px;
+        margin-right: -1px;
+      }
+      
+      #cat-prod.row {
+        gap: 0;
+      }
+      
+      .card {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        margin: 0;
+        max-width: 200px;
+      }
+      
+      .card-img-top {
+        max-height: 150px;
+      }
+    } */
 
 .btn-primary:hover {
     background-color: #fa8334;
