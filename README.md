@@ -21,9 +21,9 @@ Para rodar o site siga as etapas a seguir:
 
 2 - Instale as seguintes dependências via npm, digitando os seguintes comandos no mesmo:
 
-npm install
-npm install firebase
+- npm install
+- npm install firebase
 
 3 - Por ultimo, para rodar a aplicação digite o comando:
 
-npm run dev
+- npm run dev
