@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { BsFileMinus, BsFilePlus, BsX } from 'react-icons/bs';
-
 import { useNavigate } from 'react-router-dom';
 import { products } from '../components/Produtos';
 import './Carrinho.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import UserContext from '../contexts/UserContext';
 
 export default function Carrinho() {
   const navigate = useNavigate();
+  const userContext = useContext(UserContext);
+  const { logado } = userContext;
 
   const [quantidades, setQuantidades] = useState(Array(products.length).fill(2)); // Estado para as quantidades dos produtos
   const precos = products.map((produto) => parseFloat(produto.preco)); // Array de preços dos produtos
@@ -58,7 +60,11 @@ export default function Carrinho() {
       quantidade: quantidade,
     }));
 
-    navigate('/FinalizarCompra', { state: { produtos: produtosSelecionados } });
+    if (logado) {
+      navigate('/FinalizarCompra', { state: { produtos: produtosSelecionados } });
+    } else {
+      navigate('/Login');
+    }
   };
 
   return (
@@ -79,7 +85,6 @@ export default function Carrinho() {
                 </tr>
               </thead>
               <tbody>
-                {/* Renderizar linhas de produtos com base no estado das quantidades */}
                 {quantidades.map((quantidade, index) => (
                   <tr key={index}>
                     <td>

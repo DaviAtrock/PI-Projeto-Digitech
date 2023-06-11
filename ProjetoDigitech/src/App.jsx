@@ -31,15 +31,7 @@ export default function App() {
         <Route path="CelularesTab" element={<CelularesTab />} />
         <Route path="Computadores" element={<Computadores />} />
         <Route path="Perfil" element={<Perfil />} />
-        {logado ? (
-          <>
-            <Route path="FinalizarCompra" element={<FinalizarCompra />} />
-            
-          </>
-        ) : (
-          <Navigate to="/Login" replace={true} />
-        )}
-
+        <Route path="FinalizarCompra" element={<FinalizarCompra />} />
         <Route path="Login" element={<Login />} />
         <Route path="*" element={<Erro404 />} />
       </Routes>

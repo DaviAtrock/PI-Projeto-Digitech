@@ -1,37 +1,33 @@
 import { BsSearch, BsFillCartFill, BsFillPersonFill, BsFillKeyFill } from 'react-icons/bs';
 import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import './Navbar.css';
 import logoImg from '../assets/logo4.png'
+import UserContext from '../contexts/UserContext'
 
-export default function Header() {
-    const [searchQuery, setSearchQuery] = useState(""); // Estado para armazenar a consulta de pesquisa
+export default function Navbar() {
+    const userContext = useContext(UserContext);
+    const { logado } = userContext;
+    const [searchQuery, setSearchQuery] = useState("");
 
-    // Função para lidar com o envio do formulário de pesquisa
     const handleSearchSubmit = (event) => {
         event.preventDefault();
-        // Coloque aqui a lógica para lidar com a pesquisa, por exemplo, redirecionar para a página de resultados de pesquisa
         console.log("Pesquisar por:", searchQuery);
     };
 
-    // Função para lidar com o clique no botão de busca
     const handleSearchClick = () => {
         if (searchQuery !== "") {
-            // Faz a solicitação HTTP para buscar os resultados da pesquisa
             fetch(`https://api.example.com/search?q=${searchQuery}`)
                 .then(response => response.json())
                 .then(data => {
-                    // Aqui você pode lidar com os dados da resposta da API
                     console.log("Resultados da pesquisa:", data);
                 })
                 .catch(error => {
-                    // Lidar com erros na solicitação HTTP
                     console.error("Erro na solicitação de pesquisa:", error);
                 });
         }
     };
 
-    // Função para atualizar a consulta de pesquisa no estado
     const handleSearchChange = (event) => {
         setSearchQuery(event.target.value);
     };
@@ -44,7 +40,7 @@ export default function Header() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <Link to="/" className="navbar-brand">
-                    <img src={logoImg} className="logo-img" alt="Logo" />
+                        <img src={logoImg} className="logo-img" alt="Logo" />
                     </Link>
                 </div>
                 <div className="d-flex justify-content-center align-items-center mt-1">
@@ -57,12 +53,15 @@ export default function Header() {
                     <Link to="/Carrinho" className="cart-icon me-3">
                         <BsFillCartFill className="bi bi-cart" style={{ color: "black" }} />
                     </Link>
-                    <Link to="/Perfil" className="perfil-icon me-3">
-                        <BsFillPersonFill className="bi bi-person" style={{ color: "black" }} />
-                    </Link>
-                    <Link to="/Login" className="login-icon me-3">
-                        <BsFillKeyFill className="bi bi-person" style={{ color: "black" }} />
-                    </Link>
+                    {logado ? (
+                        <Link to="/Perfil" className="perfil-icon me-3">
+                            <BsFillPersonFill className="bi bi-person" style={{ color: "black" }} />
+                        </Link>
+                    ) : (
+                        <Link to="/Login" className="perfil-icon me-3">
+                            <BsFillKeyFill className="bi bi-key" style={{ color: "black" }} />
+                        </Link>
+                    )}
                 </div>
                 <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div className="offcanvas-header">
