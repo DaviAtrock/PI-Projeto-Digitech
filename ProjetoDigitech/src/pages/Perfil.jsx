@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 
 function ProfilePage() {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
   const [orderHistory, setOrderHistory] = useState([
     {
       id: 1234,
@@ -17,16 +21,57 @@ function ProfilePage() {
     }
   ]);
 
+  useEffect(() => {
+    const auth = getAuth();
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // O usuário está autenticado, você pode acessar as informações do usuário aqui
+        setUser(user);
+      } else {
+        // O usuário não está autenticado, redirecione para a página de login
+        navigate('/login');
+      }
+    });
+
+    return () => {
+      // Remova o observador do estado de autenticação ao desmontar o componente
+      unsubscribe();
+    };
+  }, [navigate]);
+
+  const handleLogout = async () => {
+    const auth = getAuth();
+    try {
+      await signOut(auth);
+      // Redirecionar para a página de login após o logout
+      navigate('/login');
+    } catch (error) {
+      console.log('Erro ao realizar logout:', error);
+    }
+  };
+
+  if (!user) {
+    return (
+      <div>
+        <Navbar />
+        <p>Usuário não autenticado. Redirecionando para a página de login...</p>
+        {/* Não é necessário adicionar a lógica de redirecionamento aqui */}
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div>
-    <Navbar />
+      <Navbar />
       <h1>Perfil</h1>
       <h2>Informações Pessoais</h2>
-      <p>Nome: John Doe</p>
-      <p>Endereço: 123 Main Street</p>
-      <p>Número de telefone: (123) 456-7890</p>
-      <p>E-mail: john.doe@example.com</p>
-      <img src="https://via.placeholder.com/150" alt="Foto de perfil" />
+      <p>Nome: {user.displayName}</p>
+      <p>Endereço: {user.address}</p>
+      <p>Número de telefone: {user.phoneNumber}</p>
+      <p>E-mail: {user.email}</p>
+      <img src={user.photoURL} alt="Foto de perfil" />
 
       <h2>Histórico de Pedidos</h2>
       <ul>
@@ -41,8 +86,11 @@ function ProfilePage() {
       <p>Método de pagamento: Cartão de Crédito</p>
 
       <h2>Preferências de Envio</h2>
-      <p>Endereço de entrega: 123 Main Street</p>
+      <p>Endereço de entrega: {user.deliveryAddress}</p>
       <p>Opções de envio: Entrega Expressa</p>
+
+      <button onClick={handleLogout}>Logout</button>
+
       <Footer />
     </div>
   );

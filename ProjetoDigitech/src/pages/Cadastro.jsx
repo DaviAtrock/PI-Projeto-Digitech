@@ -1,29 +1,27 @@
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { useForm } from 'react-hook-form';
-import React, { useState } from 'react';
-import ContatosContext from '../contexts/ContatosContext';
+import { useState } from 'react';
+import { criarUsuario } from '../services/FirebaseConfig';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './Cadastro.css';
 
 export default function Cadastro() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const { incluirContato } = useContext(ContatosContext);
-  const navigate = useNavigate();
-  const [focusedInput, setFocusedInput] = useState(null);
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [error, setError] = useState('');
 
-  function onSubmit(data) {
-    incluirContato(data);
-    navigate('/');
-  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    
+    setError('');
 
-  function handleInputFocus(inputName) {
-    setFocusedInput(inputName);
-  }
-
-  function handleInputBlur() {
-    setFocusedInput(null);
+    criarUsuario(nome, email, senha)
+      .then(() => {
+        // Usuário criado com sucesso, faça ações adicionais se necessário
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   }
 
   return (
@@ -31,46 +29,41 @@ export default function Cadastro() {
       <Navbar />
       <div className="container-cadastro">
         <h1>Cadastre-se</h1>
-        <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <form className="form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="nome">Nome:</label>
             <input
               type="text"
               id="nome"
-              className={`form-control ${focusedInput === 'nome' ? 'focused' : ''}`}
-              {...register('nome', { required: 'Campo obrigatório' })}
-              onMouseEnter={() => handleInputFocus('nome')}
-              onMouseLeave={handleInputBlur}
+              className="form-control"
+              value={nome}
+              onChange={(event) => setNome(event.target.value)}
+              required
             />
-            {errors.nome && <p className="error">{errors.nome.message}</p>}
           </div>
           <div className="form-group">
             <label htmlFor="email">Email:</label>
             <input
               type="email"
               id="email"
-              className={`form-control ${focusedInput === 'email' ? 'focused' : ''}`}
-              {...register('email', { required: 'Campo obrigatório' })}
-              onMouseEnter={() => handleInputFocus('email')}
-              onMouseLeave={handleInputBlur}
+              className="form-control"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
             />
-            {errors.email && <p className="error">{errors.email.message}</p>}
           </div>
           <div className="form-group">
             <label htmlFor="senha">Senha:</label>
             <input
               type="password"
               id="senha"
-              className={`form-control ${focusedInput === 'senha' ? 'focused' : ''}`}
-              {...register('senha', {
-                required: 'Campo obrigatório',
-                minLength: { value: 4, message: 'A senha deve ter no mínimo 4 caracteres' },
-              })}
-              onMouseEnter={() => handleInputFocus('senha')}
-              onMouseLeave={handleInputBlur}
+              className="form-control"
+              value={senha}
+              onChange={(event) => setSenha(event.target.value)}
+              required
             />
-            {errors.senha && <p className="error">{errors.senha.message}</p>}
           </div>
+          {error && <p className="error">{error}</p>}
           <div className="form-group">
             <button type="submit" className="btn-submit mt-5">Enviar</button>
           </div>
