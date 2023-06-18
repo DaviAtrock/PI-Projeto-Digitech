@@ -5,15 +5,11 @@ Projeto Integrado Fase 2
 
 Bem vindo a Fase 2 do Projeto Integrado - Projeto Digitech
 
-- 👋 Olá, somos @DaviAtrock, @leticiacarolinefs, @Tchuc0, @Alekwendel, @AdnyEmanuele somos a equipe responsável pelo desenvolvimento do Projeto Digitech.
+- 👋 Olá, somos @DaviAtrock, @leticiacarolinefs, @Tchuc0, @Alekwendel, @AdnyEmanuele e @kesley408. Somos a equipe responsável pelo desenvolvimento do Projeto Digitech.
 Um App/Site voltado para e-market em produtos de tecnologia.
 
 - 📫 Para contato favor enviar email para:
-- daviatrock@gmail.com,
-leticia.carol@gmail.com,
-bcaputo27@gmail.com,
-alekwendel@hotmail.com,
-adnybrandao@gmail.com
+- daviatrock@gmail.com
 
 Para rodar o site siga as etapas a seguir:
 
@@ -24,6 +20,9 @@ Para rodar o site siga as etapas a seguir:
 - npm install
 - npm install firebase
 
-3 - Por ultimo, para rodar a aplicação digite o comando:
+3 - Você precisa de minha permissão para baixar o arquivo de configuração do Firebase, e após o download, coloque-o na pasta "services" da aplicação. Solicite o download no link abaixo:
+https://drive.google.com/drive/folders/1M_s4lx3T1JWidNXBWxssSRhKnT8wlk6e?usp=sharing
+
+4 - Por ultimo, para rodar a aplicação, navegue até a pasta da mesma no terminal do VsCode digitando "cd ProjetoDigitech", e dentro dessa pasta digite:
 
 - npm run dev
