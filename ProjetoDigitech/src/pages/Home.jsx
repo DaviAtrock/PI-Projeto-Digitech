@@ -1,10 +1,19 @@
-import { products } from "../components/Produtos"
-import React from "react"
-import Footer from "../components/Footer"
-import Navbar from "../components/Navbar"
-import "./Home.css"
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { products } from '../components/Produtos';
+import './Home.css';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
-const ProductsPage = () => {
+export default function Home() {
+  const navigate = useNavigate();
+  const [carrinho, setCarrinho] = useState([]); // Estado para os produtos no carrinho
+
+  // Função para adicionar um produto ao carrinho
+  const adicionarAoCarrinho = (produto) => {
+    navigate('/Carrinho', { state: { produtoSelecionado: produto } });
+  };
+
   return (
     <>
       <Navbar />
@@ -50,7 +59,6 @@ const ProductsPage = () => {
           </div>
         </div>
 
-
         <section id="produtos" className="container my-5">
           <h2 className="text-left mb-4 title">Produtos em destaque</h2>
           <div className="row row-cols-1 row-cols-md-5 g-4" id="cat-prod">
@@ -61,7 +69,7 @@ const ProductsPage = () => {
                   <div className="card-body">
                     <h5 className="card-title">{product.nome}</h5>
                     <p className="card-text">{product.descricao}</p>
-                    <a href="#" className="btn btn-primary">Comprar</a>
+                    <button onClick={() => adicionarAoCarrinho(product)} className="btn btn-primary">Comprar</button>
                   </div>
                 </div>
               </div>
@@ -73,5 +81,3 @@ const ProductsPage = () => {
     </>
   )
 }
-
-export default ProductsPage;
