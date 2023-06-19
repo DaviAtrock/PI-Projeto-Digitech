@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { products } from '../components/Produtos';
 import './Carrinho.css';
@@ -8,12 +8,12 @@ import Navbar from '../components/Navbar';
 export default function Carrinho() {
   const location = useLocation();
   const produtoSelecionado = location.state?.produtoSelecionado;
+  const [produtoNoCarrinho, setProdutoNoCarrinho] = useState(produtoSelecionado);
 
   useEffect(() => {
     // Verificar se há um produto selecionado
     if (produtoSelecionado) {
-      // Lógica para adicionar o produto selecionado ao carrinho ou realizar outras operações
-      console.log(produtoSelecionado);
+      setProdutoNoCarrinho(produtoSelecionado);
     }
   }, [produtoSelecionado]);
 
@@ -35,18 +35,18 @@ export default function Carrinho() {
                 </tr>
               </thead>
               <tbody>
-                {produtoSelecionado && (
+                {produtoNoCarrinho && (
                   <tr>
                     <td>
                       <div className="product">
-                        <img src={produtoSelecionado.img} alt="" />
+                        <img src={produtoNoCarrinho.img} alt="" />
                         <div className="info">
-                          <div className="name">{produtoSelecionado.nome}</div>
-                          <div className="category">{produtoSelecionado.descricao}</div>
+                          <div className="name">{produtoNoCarrinho.nome}</div>
+                          <div className="category">{produtoNoCarrinho.descricao}</div>
                         </div>
                       </div>
                     </td>
-                    <td>R$ {produtoSelecionado.preco}</td>
+                    <td>R$ {produtoNoCarrinho.preco}</td>
                     <td>
                       <div className="qty">
                         <button>-</button>
@@ -54,7 +54,7 @@ export default function Carrinho() {
                         <button>+</button>
                       </div>
                     </td>
-                    <td>R$ {produtoSelecionado.preco}</td>
+                    <td>R$ {produtoNoCarrinho.preco}</td>
                     <td>
                       <button className="remove">Remover</button>
                     </td>
@@ -69,7 +69,7 @@ export default function Carrinho() {
               <div className="info">
                 <div>
                   <span>Sub-total</span>
-                  <span>R$ {produtoSelecionado ? produtoSelecionado.preco : '0.00'}</span>
+                  <span>R$ {produtoNoCarrinho ? produtoNoCarrinho.preco : '0.00'}</span>
                 </div>
                 <div>
                   <span>Frete</span>
@@ -84,7 +84,7 @@ export default function Carrinho() {
               </div>
               <footer className="footer-compra">
                 <span>Total</span>
-                <span>R$ {produtoSelecionado ? produtoSelecionado.preco : '0.00'}</span>
+                <span>R$ {produtoNoCarrinho ? produtoNoCarrinho.preco : '0.00'}</span>
               </footer>
             </div>
             <button className="finalizar-compra">Finalizar Compra</button>

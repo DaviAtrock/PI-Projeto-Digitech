@@ -43,7 +43,7 @@ export default function Hardware() {
                   <div className="card-body">
                     <h5 className="card-title">{produto.nome}</h5>
                     <p className="card-text">{produto.descricao}</p>
-                    <a href="#" className="btn btn-primary">Comprar</a>
+                    <a href="#" className="btn btn-primary">Saiba Mais</a>
                   </div>
                 </div>
               </div>
