@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+}
+
+#grid-games {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#titulo-games {
+    display: flex;
+    margin-top: 10vh;
+}
