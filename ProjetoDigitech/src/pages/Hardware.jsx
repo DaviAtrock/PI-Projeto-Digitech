@@ -9,19 +9,19 @@ export default function Hardware() {
     const produtos = [
       // Exemplo de produtos da categoria "Hardware"
       {
-        id: 1,
+        id: 2,
         nome: 'RTX 3060 Ti',
         descricao: 'Placa de Video RTX 3060 TI Dual Fan PNY NVIDIA.',
         imagem: 'img/placadevideo-card2.jpg',
       },
       {
-        id: 2,
+        id: 6,
         nome: 'Placa Mãe MSI',
         descricao: 'Placa Mãe MSI A520M-A PRO, AMD AM4, mATX.',
         imagem: 'img/placamae-card6.jpg',
       },
       {
-        id: 3,
+        id: 8,
         nome: 'Memória XPG',
         descricao: 'Memória XPG Gammix D10, 8GB, 3200MHz, DDR4.',
         imagem: 'img/memoria-card8.jpg',

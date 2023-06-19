@@ -9,7 +9,7 @@ export default function Computadores() {
     const produtos = [
       // Exemplo de produtos da categoria "Hardware"
       {
-        id: 1,
+        id: 3,
         nome: 'Notebook Lenovo',
         descricao: 'Notebook Gamer Lenovo Gaming 3i Intel Core i5.',
         imagem: 'img/notebook-lenovo-card3.jpg',

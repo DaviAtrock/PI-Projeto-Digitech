@@ -9,7 +9,7 @@ export default function CelularesTab() {
     const produtos = [
       // Exemplo de produtos da categoria "Hardware"
       {
-        id: 1,
+        id: 10,
         nome: 'Samsung Galaxy S20',
         descricao: 'Smartphone Samsung Galaxy S20 FE 5G, 6GB.',
         imagem: 'img/smartphone-samsung-galaxy-card1.jpg',

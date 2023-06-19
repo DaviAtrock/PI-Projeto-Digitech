@@ -9,19 +9,19 @@ export default function Perifericos() {
     const produtos = [
       // Exemplo de produtos da categoria "Hardware"
       {
-        id: 1,
+        id: 4,
         nome: 'Monitor Gamer Husky',
         descricao: 'Monitor Gamer Husky Tempest 34 Ultrawide.',
         imagem: 'img/monitor-gamer-card4.jpg',
       },
       {
-        id: 2,
+        id: 7,
         nome: 'HyperX Cloud Alpha',
         descricao: 'Headset Gamer Sem fio HyperX Cloud Alpha.',
         imagem: 'img/headset-card7.jpg',
       },
       {
-        id: 3,
+        id: 9,
         nome: 'Mouse Razer Viper',
         descricao: 'Mouse Sem Fio Gamer Razer Viper Ultimate.',
         imagem: 'img/mouserazer-card9.jpg',
