@@ -1,4 +1,4 @@
-import { urlApi } from "../services/FirebaseConfig"
+import { urlApi } from "./FirebaseConfig"
 
 // GET obter, listar
 export async function listaTarefas() {
