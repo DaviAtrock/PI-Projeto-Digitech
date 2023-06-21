@@ -1,21 +1,15 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { products } from '../components/Produtos';
+import { useContext, useEffect } from 'react';
 import './Carrinho.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import ProdutoContext from '../contexts/ProdutoContext';
 
 export default function Carrinho() {
-  const location = useLocation();
-  const produtoSelecionado = location.state?.produtoSelecionado;
-  const [produtoNoCarrinho, setProdutoNoCarrinho] = useState(produtoSelecionado);
+  const { produtoCarrinho } = useContext(ProdutoContext);
 
   useEffect(() => {
-    // Verificar se há um produto selecionado
-    if (produtoSelecionado) {
-      setProdutoNoCarrinho(produtoSelecionado);
-    }
-  }, [produtoSelecionado]);
+    console.log(produtoCarrinho)
+  }, []);
 
   return (
     <>
@@ -35,8 +29,8 @@ export default function Carrinho() {
                 </tr>
               </thead>
               <tbody>
-                {produtoNoCarrinho && (
-                  <tr>
+                {produtoCarrinho.map((produtoNoCarrinho) => (
+                  <tr key={produtoNoCarrinho.id}>
                     <td>
                       <div className="product">
                         <img src={produtoNoCarrinho.img} alt="" />
@@ -59,7 +53,7 @@ export default function Carrinho() {
                       <button className="remove">Remover</button>
                     </td>
                   </tr>
-                )}
+                ))}
               </tbody>
             </table>
           </section>
@@ -69,7 +63,7 @@ export default function Carrinho() {
               <div className="info">
                 <div>
                   <span>Sub-total</span>
-                  <span>R$ {produtoNoCarrinho ? produtoNoCarrinho.preco : '0.00'}</span>
+                  <span>R$ {produtoCarrinho.length > 0 ? produtoCarrinho[0].preco : '0.00'}</span>
                 </div>
                 <div>
                   <span>Frete</span>
@@ -84,7 +78,7 @@ export default function Carrinho() {
               </div>
               <footer className="footer-compra">
                 <span>Total</span>
-                <span>R$ {produtoNoCarrinho ? produtoNoCarrinho.preco : '0.00'}</span>
+                <span>R$ {produtoCarrinho.length > 0 ? produtoCarrinho[0].preco : '0.00'}</span>
               </footer>
             </div>
             <button className="finalizar-compra">Finalizar Compra</button>

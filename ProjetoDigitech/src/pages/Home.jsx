@@ -1,17 +1,23 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { products } from '../components/Produtos';
+
+import ProdutoContext from '../contexts/ProdutoContext'
 import './Home.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 export default function Home() {
-  const navigate = useNavigate();
-  const [carrinho, setCarrinho] = useState([]); // Estado para os produtos no carrinho
+  const { produtos, listarProdutos, adicionaProdutoCarrinho } = useContext(ProdutoContext);
 
-  // Função para adicionar um produto ao carrinho
+  useEffect(() => {
+    listarProdutos();
+  }, []);
+
+  const navigate = useNavigate();
+
   const adicionarAoCarrinho = (produto) => {
-    navigate('/Carrinho', { state: { produtoSelecionado: produto } });
+    adicionaProdutoCarrinho(produto)
+    navigate('/Carrinho/');
   };
 
   return (
@@ -62,7 +68,7 @@ export default function Home() {
         <section id="produtos" className="container my-5">
           <h2 className="text-left mb-4 title">Produtos em destaque</h2>
           <div className="row row-cols-1 row-cols-md-5 g-4" id="cat-prod">
-            {products.map((product) => (
+            {produtos.map((product) => (
               <div key={product.id} className="col">
                 <div className="card h-100">
                   <img src={product.img} className="card-img-top" alt="..." />
