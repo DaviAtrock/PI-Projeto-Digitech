@@ -1,11 +1,28 @@
+body {
+    margin: 0;
+}
+
+main {
+    min-height: calc(100vh - 100px);
+    padding: 5em;
+}
+
 #grid-celularestab {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; 
+    min-height: 100vh;
 }
 
 #titulo-celularestab {
     display: flex;
     margin-top: 10vh;
+}
+
+.card {
+    position: relative;
+}
+
+.card-body {
+    background-color: aliceblue;
 }

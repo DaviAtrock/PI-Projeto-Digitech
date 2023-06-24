@@ -3,6 +3,10 @@
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
 }
 
+#nav-height {
+  height: 70px;
+}
+
 .nav-item a {
   text-decoration: none;
   color: black;
@@ -12,7 +16,7 @@
   color: lightgrey;
 }
 
-#search-form button {
+.search-button {
   background-color: #fa8334;
   border: none;
 }

@@ -1,25 +1,34 @@
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import './FinalizarCompra.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-
+import { reservarProduto } from '../services/CartService';
+import ProdutoContext from '../contexts/ProdutoContext';
 
 export default function FinalizarCompra() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { produtos } = location.state;
+  const { produtoCarrinho } = useContext(ProdutoContext);
   const [opcaoPagamento, setOpcaoPagamento] = useState(null);
 
   // Função para redirecionar para o serviço de pagamento selecionado
-  const finalizarCompra = () => {
-    if (opcaoPagamento === 'bb') {
-      // Lógica para redirecionar para o serviço de pagamento do Banco do Brasil
-      window.location.href = 'https://www.bancodobrasil.com.br/';
-    } else if (opcaoPagamento === 'pix') {
-      // Lógica para redirecionar para o serviço de pagamento do Pix
-      window.location.href = 'https://www.seupix.com.br/';
+  const finalizarCompra = async () => {
+    // Criar uma tarefa no banco e gerar um token de venda
+    try {
+      for (const produto of produtoCarrinho) {
+        await reservarProduto(produto.id, 'userId'); // Substitua 'userId' pelo ID do usuário atual
+      }
+
+      if (opcaoPagamento === 'bb') {
+        // Lógica para redirecionar para o serviço de pagamento do Banco do Brasil
+        window.location.href = 'https://www.bancodobrasil.com.br/';
+      } else if (opcaoPagamento === 'pix') {
+        // Lógica para redirecionar para o serviço de pagamento do Pix
+        window.location.href = 'https://www.seupix.com.br/';
+      }
+    } catch (error) {
+      console.error(error);
+      // Tratar o erro adequadamente
     }
   };
 
@@ -34,15 +43,15 @@ export default function FinalizarCompra() {
             <div className="box">
               <header className="header-fincompra">Resumo da compra</header>
               <ul>
-                {produtos.map((produto, index) => (
+                {produtoCarrinho.map((produto, index) => (
                   <li key={index}>
-                    <img src={produto.produto.img} alt={produto.produto.nome} />
+                    <img src={produto.img} alt={produto.nome} />
                     <div className="info">
-                      <div className="name">{produto.produto.nome}</div>
+                      <div className="name">{produto.nome}</div>
                       <div className="quantity">Quantidade: {produto.quantidade}</div>
-                      <div className="price">Preço unitário: R$ {produto.produto.preco}</div>
+                      <div className="price">Preço unitário: R$ {produto.preco}</div>
                       <div className="total">
-                        Total: R$ {(produto.quantidade * produto.produto.preco).toFixed(2)}
+                        Total: R$ {(produto.quantidade * produto.preco).toFixed(2)}
                       </div>
                     </div>
                   </li>

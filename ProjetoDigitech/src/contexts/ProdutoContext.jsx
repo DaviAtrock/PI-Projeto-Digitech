@@ -11,7 +11,7 @@ const ProdutoContext = createContext({
 
 export function ProdutoContextProvider(props) {
   const [produtos, setProdutos] = useState([]);
-  const [produtoCarrinho, setProdutoCarrinho, removerProdutoCarrinho] = useState([]);
+  const [produtoCarrinho, setProdutoCarrinho ] = useState([]);
 
   async function listarProdutos() {
     try {

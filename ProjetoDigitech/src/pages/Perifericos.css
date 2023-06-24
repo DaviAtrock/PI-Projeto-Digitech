@@ -2,6 +2,11 @@ body {
     margin: 0;
 }
 
+main {
+    min-height: calc(100vh - 100px);
+    padding: 5em;
+}
+
 #grid-perifericos {
     display: flex;
     align-items: center;
@@ -12,4 +17,12 @@ body {
 #titulo-perifericos {
     display: flex;
     margin-top: 10vh;
+}
+
+.card {
+    position: relative;
+}
+
+.card-body {
+    background-color: aliceblue;
 }

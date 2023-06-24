@@ -1,6 +1,6 @@
 import { urlApi } from './FirebaseConfig'
 
-//GET Livros
+//GET Produtos
 export async function listaProdutos() {
     let produtos = []
     await fetch(urlApi + "/produtos.json")
@@ -17,7 +17,7 @@ export async function listaProdutos() {
     return produtos
 }
 
-//GET LivrosReservados
+//GET ProdutosReservados
 export async function listaProdutosReservados(userId) {
     try {
         const response = await fetch(urlApi + `produtosReservados.json?orderBy="userId"&equalTo="${userId}"`)
@@ -33,7 +33,7 @@ export async function listaProdutosReservados(userId) {
     }
 }
 
-//GET VerificaLivrosReservados
+//GET VerificaProdutosReservados
 export async function verificarProdutosReservados(produtoId, userId) {
     try {
         const response = await fetch(urlApi + `livrosReservados.json?orderBy="userId"&equalTo="${userId}"`);

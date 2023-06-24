@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { BsFileMinus, BsFilePlus, BsFillFileExcelFill } from 'react-icons/bs';
+import { Link, useNavigate } from 'react-router-dom';
 import './Carrinho.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -8,6 +9,7 @@ import ProdutoContext from '../contexts/ProdutoContext';
 export default function Carrinho() {
   const { produtoCarrinho, removerProduto } = useContext(ProdutoContext);
   const [quantidades, setQuantidades] = useState({});
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     console.log(produtoCarrinho);
@@ -41,6 +43,10 @@ export default function Carrinho() {
   }, 0);
 
   const total = subTotal;
+
+  function handleFinalizarCompra() {
+    navigate('/FinalizarCompra', { state: { produtos: produtoCarrinho } });
+  }  
 
   return (
     <>
@@ -113,7 +119,7 @@ export default function Carrinho() {
                 <span>R$ {total.toFixed(2)}</span>
               </footer>
             </div>
-            <button className="finalizar-compra">Finalizar Compra</button>
+            <Link to="/FinalizarCompra" className="finalizar-compra" id="btn-fincompra" onClick={handleFinalizarCompra}>Finalizar Compra</Link>
           </aside>
         </div>
       </main>

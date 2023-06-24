@@ -224,7 +224,7 @@ aside .box footer {
     justify-content: space-between;
 }
 
-aside>button {
+#btn-fincompra {
     border: 0;
     padding: 15px 0;
     color: lightgray;
@@ -232,19 +232,17 @@ aside>button {
     display: block;
     width: 100%;
     text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
     letter-spacing: 1px;
     font-size: 16px;
 }
 
-aside>button:hover {
+#btn-fincompra:hover {
     background: #3bc55b;
     color: #fff;
 }
 
-aside>button a:hover {
+#btn-fincompra a:hover {
     background: #3bc55b;
-}
-
-.finalizar-compra {
-    text-decoration: none;
 }

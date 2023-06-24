@@ -1,0 +1,31 @@
+.live-search-container .search-item-image {
+    width: 50px;
+    height: 50px;
+}
+
+.results-visible .search-item-image {
+    width: 50px;
+    height: 50px;
+}
+
+.live-search-container .search-item-name {
+    font-size: 12px;
+    color: black;
+    text-decoration: none;
+}
+
+.results-visible .search-item-name {
+    font-size: 12px;
+    color: black;
+    text-decoration: none;
+}
+
+.live-search-container .search-item-price {
+    font-size: 10px;
+    color: black;
+}
+
+.results-visible .search-item-price {
+    font-size: 10px;
+    color: black;
+}
