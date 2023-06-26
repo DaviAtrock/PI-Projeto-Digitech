@@ -7,8 +7,6 @@ import Carrinho from './pages/Carrinho'
 import Login from './pages/Login'
 import Perfil from './pages/Perfil'
 import Cadastro from './pages/Cadastro'
-import SobreNos from './pages/SobreNos'
-import Pesquisa from './pages/Pesquisa'
 import Hardware from './pages/Hardware'
 import Perifericos from './pages/Perifericos'
 import CelularesTab from './pages/CelularesTab'
@@ -26,8 +24,6 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="Carrinho" element={<Carrinho />} />
         <Route path="Cadastro" element={<Cadastro />} />
-        <Route path="SobreNos" element={<SobreNos />} />
-        <Route path="Pesquisa" element={<Pesquisa />} />
         <Route path="Hardware" element={<Hardware />} />
         <Route path="Perifericos" element={<Perifericos />} />
         <Route path="Games" element={<Games />} />
