@@ -178,12 +178,13 @@ table tbody tr td {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-content: center;
     }
 
     main .content aside {
         width: 100%;
         max-width: 300px;
-        margin-top: 20px;  
+        margin-top: 20px;
     }
 
     .product {
@@ -234,7 +235,7 @@ table tbody tr td {
     }
 
     aside {
-        margin-right: 57px;
+        margin: auto;
     }
 
     .product {
