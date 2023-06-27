@@ -41,6 +41,26 @@
   margin-left: 5px;
 }
 
+#cont-resultados {
+  position: relative;
+  left: 40vw;
+  top: -48px;
+}
+
+@media (max-width: 720px) {
+  .logo-img {
+    width: 70px;
+    height: 40px;
+    margin-left: 5px;
+  }
+
+  #cont-resultados {
+    position: relative;
+    left: 40vw;
+    top: -44px;
+  }
+}
+
 /*-- CSS DO FOOTER --*/
 
 footer {

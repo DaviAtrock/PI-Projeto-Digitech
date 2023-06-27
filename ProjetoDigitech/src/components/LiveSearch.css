@@ -29,3 +29,19 @@
     font-size: 10px;
     color: black;
 }
+
+#custom-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: horizontal;
+}
+
+@media (max-width: 720px) {
+    #custom-input {
+      width: 35vw;
+      height: 40px;
+      margin-left: 5px;
+    }
+  }

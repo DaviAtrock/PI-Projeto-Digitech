@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import './Games.css';
 import ProdutoContext from '../contexts/ProdutoContext';
+import './Games.css';
 
 export default function Games() {
   const { produtos, listarProdutos } = useContext(ProdutoContext);

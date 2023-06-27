@@ -1,10 +1,9 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import ProdutoContext from '../contexts/ProdutoContext'
-import './Home.css';
+import ProdutoContext from '../contexts/ProdutoContext';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import './Home.css';
 
 export default function Home() {
   const { produtos, listarProdutos, adicionaProdutoCarrinho } = useContext(ProdutoContext);
@@ -24,7 +23,7 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        <div className="container-fluid container-home" id="carousel">
+        <div className="container-fluid container-home expanded-carousel" id="carousel">
           <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
             <div className="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>

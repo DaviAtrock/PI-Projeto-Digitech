@@ -8,9 +8,10 @@ main {
 }
 
 @media (max-width: 720px) {
-    #carousel {
-        margin-top: 50px;
-    }
+    .expanded-carousel {
+        width: 150%;
+        margin-left: -3.6em; 
+      }
 }
 
 /* @media (max-width: 720px) {

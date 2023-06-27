@@ -103,7 +103,7 @@ const LiveSearch = ({
           onChange={handleChange}
           type="text"
           className="px-5 text-lg rounded-full border-2 border-gray-500 focus:border-gray-700 outline-none transition"
-          placeholder="Sua pesquisa..."
+          placeholder="Busca..."
           id="custom-input"
         />
         

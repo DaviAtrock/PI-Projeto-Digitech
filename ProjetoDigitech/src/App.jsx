@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Erro404 from './pages/Erro404'
 import Home from './pages/Home'
-import UserContext from './contexts/UserContext'
+// import UserContext from './contexts/UserContext'
 import Carrinho from './pages/Carrinho'
 import Login from './pages/Login'
 import Perfil from './pages/Perfil'
@@ -16,7 +16,7 @@ import Games from './pages/Games'
 
 
 export default function App() {
-  const { logado } = useContext(UserContext)
+  // const { logado } = useContext(UserContext)
 
   return (
     <BrowserRouter>

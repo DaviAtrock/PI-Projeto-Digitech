@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import './CelularesTab.css';
 import ProdutoContext from '../contexts/ProdutoContext';
+import './CelularesTab.css';
 
 export default function CelularesTab() {
   const { produtos, listarProdutos } = useContext(ProdutoContext);

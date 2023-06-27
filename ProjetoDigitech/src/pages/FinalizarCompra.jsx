@@ -1,19 +1,19 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './FinalizarCompra.css';
+import { reservarProduto } from '../services/CartService';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { reservarProduto } from '../services/CartService';
 import ProdutoContext from '../contexts/ProdutoContext';
+import './FinalizarCompra.css';
 
 export default function FinalizarCompra() {
   const navigate = useNavigate();
   const { produtoCarrinho } = useContext(ProdutoContext);
   const [opcaoPagamento, setOpcaoPagamento] = useState(null);
 
-  // Função para redirecionar para o serviço de pagamento selecionado
+  
   const finalizarCompra = async () => {
-    // Criar uma tarefa no banco e gerar um token de venda
+    
     try {
       for (const produto of produtoCarrinho) {
         await reservarProduto(produto.id, 'userId'); // Substitua 'userId' pelo ID do usuário atual
@@ -42,6 +42,8 @@ export default function FinalizarCompra() {
             {/* Renderizar resumo da compra */}
             <div className="box">
               <header className="header-fincompra">Resumo da compra</header>
+              <br />
+
               <ul>
                 {produtoCarrinho.map((produto, index) => (
                   <li key={index}>
@@ -50,9 +52,6 @@ export default function FinalizarCompra() {
                       <div className="name">{produto.nome}</div>
                       <div className="quantity">Quantidade: {produto.quantidade}</div>
                       <div className="price">Preço unitário: R$ {produto.preco}</div>
-                      <div className="total">
-                        Total: R$ {(produto.quantidade * produto.preco).toFixed(2)}
-                      </div>
                     </div>
                   </li>
                 ))}
