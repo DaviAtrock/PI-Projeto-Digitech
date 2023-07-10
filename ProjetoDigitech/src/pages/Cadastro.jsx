@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { criarUsuario } from '../services/FirebaseConfig';
+import { criarUsuario } from '../services/AuthService';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './Cadastro.css';

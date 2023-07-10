@@ -7,6 +7,7 @@ const ProdutoContext = createContext({
   listarProdutos: () => { },
   adicionaProdutoCarrinho: () => { },
   removerProduto: () => { },
+  limparCarrinho: () => { }, // Adicionando a função limparCarrinho
 });
 
 export function ProdutoContextProvider(props) {
@@ -31,7 +32,10 @@ export function ProdutoContextProvider(props) {
       prevProdutosCarrinho.filter((produto) => produto.id !== produtoId)
     );
   }
-  
+
+  function limparCarrinho() {
+    setProdutoCarrinho([]);
+  }
 
   const contexto = {
     produtos,
@@ -39,6 +43,7 @@ export function ProdutoContextProvider(props) {
     listarProdutos,
     adicionaProdutoCarrinho,
     removerProduto,
+    limparCarrinho, // Adicionando a função limparCarrinho ao contexto
   };
 
   return (

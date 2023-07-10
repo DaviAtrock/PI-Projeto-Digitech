@@ -86,7 +86,7 @@ aside .header-fin {
   top: 2px;
 }
 
-aside>button {
+#btn-confcompra {
   border: 0;
   padding: 15px 0;
   color: lightgray;
@@ -96,9 +96,10 @@ aside>button {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 16px;
+  text-align: center;
 }
 
-aside>button:hover {
+#btn-confcompra:hover {
   background: #3bc55b;
   color: #fff;
 }

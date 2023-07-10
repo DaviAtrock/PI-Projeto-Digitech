@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { reservarProduto } from '../services/CartService';
+import { reservarPedido } from '../services/CartService';
+import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import ProdutoContext from '../contexts/ProdutoContext';
@@ -8,28 +9,35 @@ import './FinalizarCompra.css';
 
 export default function FinalizarCompra() {
   const navigate = useNavigate();
-  const { produtoCarrinho } = useContext(ProdutoContext);
+  const { produtoCarrinho, limparCarrinho } = useContext(ProdutoContext);
   const [opcaoPagamento, setOpcaoPagamento] = useState(null);
+  const [quantidades, setQuantidades] = useState({});
 
-  
+
   const finalizarCompra = async () => {
-    
     try {
+      const pedidoId = generateUniqueId(); // Gerar um ID para o pedido
+
       for (const produto of produtoCarrinho) {
-        await reservarProduto(produto.id, 'userId'); // Substitua 'userId' pelo ID do usuário atual
+        const quantidadeSelecionada = quantidades[produto.id] || 1;
+        for (let i = 0; i < quantidadeSelecionada; i++) {
+          await reservarPedido(produto.id, 'userId', pedidoId); // Substitua 'userId' pelo ID do usuário atual
+        }
       }
 
-      if (opcaoPagamento === 'bb') {
-        // Lógica para redirecionar para o serviço de pagamento do Banco do Brasil
-        window.location.href = 'https://www.bancodobrasil.com.br/';
-      } else if (opcaoPagamento === 'pix') {
-        // Lógica para redirecionar para o serviço de pagamento do Pix
-        window.location.href = 'https://www.seupix.com.br/';
-      }
+      limparCarrinho();
+
     } catch (error) {
       console.error(error);
       // Tratar o erro adequadamente
     }
+  };
+
+  const generateUniqueId = () => {
+    const timestamp = Date.now().toString(36); // Obtém o timestamp atual em base 36
+    const randomString = Math.random().toString(36).substring(2, 10); // Gera uma string aleatória de 8 caracteres em base 36
+    const uniqueId = timestamp + randomString; // Concatena o timestamp e a string aleatória
+    return uniqueId;
   };
 
   return (
@@ -50,7 +58,7 @@ export default function FinalizarCompra() {
                     <img src={produto.img} alt={produto.nome} />
                     <div className="info">
                       <div className="name">{produto.nome}</div>
-                      <div className="quantity">Quantidade: {produto.quantidade}</div>
+                      <div className="quantity">Quantidade: {quantidades[produto.id] || 1}</div> 
                       <div className="price">Preço unitário: R$ {produto.preco}</div>
                     </div>
                   </li>
@@ -92,9 +100,9 @@ export default function FinalizarCompra() {
                 </div>
               </div>
             </div>
-            <button onClick={finalizarCompra} className="confirmar-compra">
+            <Link to="/ConfCompra" onClick={finalizarCompra} className="confirmar-compra" id="btn-confcompra">
               Confirmar Compra
-            </button>
+            </Link>
           </aside>
         </div>
       </main>

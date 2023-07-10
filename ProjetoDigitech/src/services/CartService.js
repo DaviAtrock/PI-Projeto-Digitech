@@ -48,10 +48,11 @@ export async function verificarProdutosReservados(produtoId, userId) {
 
 
 //POST produtosReservados
-export async function reservarProduto(produtoId, userId) {
+export async function reservarPedido(produtoId, userId, pedidoId) {
     const ProdutoReservado = {
         produtoId,
         userId,
+        pedidoId,
     }
     try {
         await fetch(urlApi + "produtosReservados.json", {
@@ -60,6 +61,6 @@ export async function reservarProduto(produtoId, userId) {
             headers: { "Context-Type": "application/json" },
         })
     } catch (error) {
-        throw new Error("Erro ao reservar livro ", error.message)
+        throw new Error("Erro ao reservar Produto", error.message)
     }
 }

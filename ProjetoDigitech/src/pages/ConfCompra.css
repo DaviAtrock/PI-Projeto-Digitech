@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+}
+
+main {
+    min-height: calc(100vh - 100px);
+    padding: 5em;
+}
+
+.sucesso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30vh;
+}

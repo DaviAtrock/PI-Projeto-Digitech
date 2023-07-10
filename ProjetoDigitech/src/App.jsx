@@ -1,8 +1,6 @@
-import { useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Erro404 from './pages/Erro404'
 import Home from './pages/Home'
-// import UserContext from './contexts/UserContext'
 import Carrinho from './pages/Carrinho'
 import Login from './pages/Login'
 import Perfil from './pages/Perfil'
@@ -13,10 +11,10 @@ import CelularesTab from './pages/CelularesTab'
 import Computadores from './pages/Computadores'
 import FinalizarCompra from './pages/FinalizarCompra'
 import Games from './pages/Games'
+import ConfCompra from './pages/ConfCompra'
 
 
 export default function App() {
-  // const { logado } = useContext(UserContext)
 
   return (
     <BrowserRouter>
@@ -24,6 +22,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="Carrinho" element={<Carrinho />} />
         <Route path="Cadastro" element={<Cadastro />} />
+        <Route path="ConfCompra" element={<ConfCompra />} />
         <Route path="Hardware" element={<Hardware />} />
         <Route path="Perifericos" element={<Perifericos />} />
         <Route path="Games" element={<Games />} />
